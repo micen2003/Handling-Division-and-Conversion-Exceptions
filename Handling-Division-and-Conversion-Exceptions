@@ -1,0 +1,29 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        PerformDivision("10", "2");  // Should print "Result: 5"
+        PerformDivision("abc", "2"); //
+ Should print "Error: Input string was not in a correct format."
+        PerformDivision("10", "0");  // Should print "Error: Cannot divide by zero."
+    }
+
+    static void PerformDivision(string num1, string num2)
+    {
+        try
+        {
+            int number1 = int.Parse(num1);
+            int number2 = int.Parse(num2);
+            int result = number1 / number2;
+            Console.WriteLine("Result: " + result);
+        }
+        catch (FormatException ex)
+        {
+            Console.WriteLine("Error: Input string was not in a correct format.");
+        }
+        catch (DivideByZeroException ex)
+        {
+            Console.WriteLine("Error: Cannot divide by zero.");
+        }
+    }
+}
